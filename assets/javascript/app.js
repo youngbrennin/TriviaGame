@@ -58,14 +58,15 @@ function loadQuestion (questionIndex) {
 }
 
 function loadNextQuestion () {
-    var selectedOption = $('input[type=radio]:checked');
+    var selectedOption = $('input[type=radio]:checked').val();
+    console.log(selectedOption);
     if(!selectedOption) {
         alert('Please select an answer!');
         return;
     }
-    var answer = selectedOption.value;
+    var answer = selectedOption;
     if(questions[currentQuestion].answer == answer) {
-        score += 10;
+        score += 1;
     }
     selectedOption.checked = false;
     currentQuestion++;
@@ -75,7 +76,7 @@ function loadNextQuestion () {
     if(currentQuestion == totQuestions) {
         // $('.container').style.display = 'none';
         console.log(resultCont);
-        resultCont.style.display = 'none';
+        resultCont.css("visibility", "visible"); 
         resultCont.text('Your Score: ' + score);
         return;
     }
