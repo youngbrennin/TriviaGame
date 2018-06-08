@@ -46,7 +46,7 @@ var opt2 = $('#opt2');
 var opt3 = $('#opt3');
 var opt4 = $('#opt4');
 var nextButton = $('#nextButton');
-var resultCont = $('#result')
+var resultCont = $('#result');
 
 function loadQuestion (questionIndex) {
     var q = questions[questionIndex];
@@ -73,8 +73,9 @@ function loadNextQuestion () {
         nextButton.text('Finish');
     }
     if(currentQuestion == totQuestions) {
-        $('.container').style.display = 'none';
-        resultCont.style.display = '';
+        // $('.container').style.display = 'none';
+        console.log(resultCont);
+        resultCont.style.display = 'none';
         resultCont.text('Your Score: ' + score);
         return;
     }
@@ -83,5 +84,7 @@ function loadNextQuestion () {
 
 loadQuestion(currentQuestion);
 
-
+// STILL NEED TO HAVE A PAGE LOAD AFTER ANSWERING THE FINAL QUESTION
+// NEED THE FINAL PAGE TO DISPLAY THE SCORE AFTER COMPLETING QUESTIONS AND AS THE TIME RUNS OUT
+// RESET GAME AFTER A CERTAIN AMOUNT OF TIME
 
